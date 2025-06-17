@@ -1,6 +1,14 @@
 import streamlit as stt
 stt.set_page_config(page_title="Bank App", layout="centered")
 
+
+class CurrentAccount(Account):
+    def _init_(self, balance):
+        super()._init_(balance)
+
+
+current = CurrentAccount(67000)
+
 class SavingsAccount(Account):
     def __init__(self,balance):
         super().__init__(balance)
@@ -11,8 +19,8 @@ class SavingsAccount(Account):
         else:
             print(" Withdrawal limit exceeded")
 
-# savings = SavingsAccount(42500)
-# current = CurrentAccount(67000)
+savings = SavingsAccount(42500)
+
 
 PIN = "2098" 
 
