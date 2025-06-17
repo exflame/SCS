@@ -1,7 +1,19 @@
 import streamlit as stt
 stt.set_page_config(page_title="Bank App", layout="centered")
 
+ class Account:
+    def __init__(self, balance):
+        self.balance = balance
 
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            return True
+        return False
+
+    def deposit(self, amount):
+        self.balance += amount
+        
 class CurrentAccount(Account):
     def _init_(self, balance):
         super()._init_(balance)
